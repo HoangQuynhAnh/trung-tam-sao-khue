@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Học - Educational Center</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .schedule-cell:hover {
+            background-color: #fef2f2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-100 py-2">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col md:flex-row items-center mb-2 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt text-primary-600 mr-2"></i>
+                        <span class="text-gray-600 text-sm">Hotline: (+84) 123 456 789</span>
+                    </div>
+                    <div class="hidden md:block mx-2 text-gray-400">|</div>
+                    <div class="flex items-center mt-1 md:mt-0">
+                        <i class="fas fa-map-marker-alt text-primary-600 mr-2"></i>
+                        <span class="text-gray-600 text-sm">Địa chỉ: 123 Đường Nguyễn Huệ, Quận 1, Bắc Giang</span>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-12 h-12 bg-primary-700 rounded-full flex items-center justify-center text-white font-bold text-xl mr-2">EC</div>
+                        <span class="text-2xl font-bold text-primary-700">EduCenter</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                  <a href="index.html" class="text-gray-700 hover:text-primary-600 font-medium">Trang chủ</a>
+                  <a href="khoa-hoc.html" class="text-gray-700 hover:text-primary-600 font-medium">Khóa học</a>
+                  <a href="giao-vien.html" class="text-gray-700 hover:text-primary-600 font-medium">Giáo viên</a>
+                  <a href="lich-hoc.html" class="text-gray-700 hover:text-primary-600 font-medium">Lịch học</a>
+                  <a href="tin-tuc.html" class="text-gray-700 hover:text-primary-600 font-medium">Tin tức</a>
+                  <a href="lien-he.html" class="text-gray-700 hover:text-primary-600 font-medium">Liên hệ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+              <a href="index.html" class="text-gray-700 hover:text-primary-600 font-medium">Trang chủ</a>
+              <a href="khoa-hoc.html" class="text-gray-700 hover:text-primary-600 font-medium">Khóa học</a>
+              <a href="giao-vien.html" class="text-gray-700 hover:text-primary-600 font-medium">Giáo viên</a>
+              <a href="lich-hoc.html" class="text-gray-700 hover:text-primary-600 font-medium">Lịch học</a>
+              <a href="tin-tuc.html" class="text-gray-700 hover:text-primary-600 font-medium">Tin tức</a>
+              <a href="lien-he.html" class="text-gray-700 hover:text-primary-600 font-medium">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="bg-primary-700 text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-center">Lịch Học</h1>
+            <p class="text-lg max-w-3xl mx-auto text-center">Xem lịch học chi tiết của các khóa học và sắp xếp thời gian học tập hiệu quả.</p>
+        </div>
+    </div>
+
+    <!-- Schedule Filter -->
+    <div class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-gray-100 p-6 rounded-lg mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label for="course" class="block text-gray-700 font-medium mb-2">Khóa học</label>
+                        <select id="course" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <option value="">Tất cả khóa học</option>
+                            <option value="math">Toán học nâng cao</option>
+                            <option value="english">Tiếng Anh giao tiếp</option>
+                            <option value="physics">Vật lý cơ bản và nâng cao</option>
+                            <option value="chemistry">Hóa học</option>
+                            <option value="literature">Ngữ văn</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="teacher" class="block text-gray-700 font-medium mb-2">Giáo viên</label>
+                        <select id="teacher" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <option value="">Tất cả giáo viên</option>
+                            <option value="minh">Nguyễn Thị Minh</option>
+                            <option value="hung">Trần Văn Hùng</option>
+                            <option value="huong">Lê Thị Hương</option>
+                            <option value="tuan">Phạm Minh Tuấn</option>
+                            <option value="hoa">Trần Thị Hoa</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="date" class="block text-gray-700 font-medium mb-2">Ngày</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    </div>
+                    <div class="flex items-end">
+                        <button class="w-full bg-primary-700 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded-lg">
+                            <i class="fas fa-search mr-2"></i> Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Navigation -->
+            <div class="flex justify-between items-center mb-6">
+                <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg">
+                    <i class="fas fa-chevron-left mr-2"></i> Tuần trước
+                </button>
+                <h2 class="text-xl font-bold text-gray-800">Tuần 15/04/2023 - 21/04/2023</h2>
+                <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg">
+                    Tuần sau <i class="fas fa-chevron-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- Weekly Schedule -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-3 px-4 border-b text-left">Thời gian</th>
+                            <th class="py-3 px-4 border-b text-center">Thứ 2</th>
+                            <th class="py-3 px-4 border-b text-center">Thứ 3</th>
+                            <th class="py-3 px-4 border-b text-center">Thứ 4</th>
+                            <th class="py-3 px-4 border-b text-center">Thứ 5</th>
+                            <th class="py-3 px-4 border-b text-center">Thứ 6</th>
+                            <th class="py-3 px-4 border-b text-center">Thứ 7</th>
+                            <th class="py-3 px-4 border-b text-center">Chủ nhật</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Morning -->
+                        <tr>
+                            <td class="py-3 px-4 border-b font-medium">8:00 - 10:00</td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-blue-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-blue-800">Toán học nâng cao</p>
+                                    <p class="text-sm text-gray-600">Nguyễn Thị Minh</p>
+                                    <p class="text-xs text-gray-500">Phòng 101</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-green-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-green-800">Tiếng Anh giao tiếp</p>
+                                    <p class="text-sm text-gray-600">Lê Thị Hương</p>
+                                    <p class="text-xs text-gray-500">Phòng 203</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-blue-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-blue-800">Toán học nâng cao</p>
+                                    <p class="text-sm text-gray-600">Nguyễn Thị Minh</p>
+                                    <p class="text-xs text-gray-500">Phòng 101</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-purple-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-purple-800">Vật lý nâng cao</p>
+                                    <p class="text-sm text-gray-600">Trần Văn Hùng</p>
+                                    <p class="text-xs text-gray-500">Phòng 105</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b"></td>
+                        </tr>
+                        <!-- Late Morning -->
+                        <tr>
+                            <td class="py-3 px-4 border-b font-medium">10:15 - 12:15</td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-yellow-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-yellow-800">Hóa học cơ bản</p>
+                                    <p class="text-sm text-gray-600">Phạm Minh Tuấn</p>
+                                    <p class="text-xs text-gray-500">Phòng 102</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-green-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-green-800">Tiếng Anh giao tiếp</p>
+                                    <p class="text-sm text-gray-600">Lê Thị Hương</p>
+                                    <p class="text-xs text-gray-500">Phòng 203</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-red-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-red-800">Ngữ văn nâng cao</p>
+                                    <p class="text-sm text-gray-600">Trần Thị Hoa</p>
+                                    <p class="text-xs text-gray-500">Phòng 201</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b"></td>
+                        </tr>
+                        <!-- Afternoon -->
+                        <tr>
+                            <td class="py-3 px-4 border-b font-medium">14:00 - 16:00</td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-purple-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-purple-800">Vật lý nâng cao</p>
+                                    <p class="text-sm text-gray-600">Trần Văn Hùng</p>
+                                    <p class="text-xs text-gray-500">Phòng 105</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-yellow-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-yellow-800">Hóa học cơ bản</p>
+                                    <p class="text-sm text-gray-600">Phạm Minh Tuấn</p>
+                                    <p class="text-xs text-gray-500">Phòng 102</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-indigo-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-indigo-800">Luyện thi đại học</p>
+                                    <p class="text-sm text-gray-600">Nguyễn Văn Đức</p>
+                                    <p class="text-xs text-gray-500">Phòng 301</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b"></td>
+                        </tr>
+                        <!-- Late Afternoon -->
+                        <tr>
+                            <td class="py-3 px-4 border-b font-medium">16:15 - 18:15</td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-red-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-red-800">Ngữ văn nâng cao</p>
+                                    <p class="text-sm text-gray-600">Trần Thị Hoa</p>
+                                    <p class="text-xs text-gray-500">Phòng 201</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-blue-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-blue-800">Toán học nâng cao</p>
+                                    <p class="text-sm text-gray-600">Nguyễn Thị Minh</p>
+                                    <p class="text-xs text-gray-500">Phòng 101</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-indigo-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-indigo-800">Luyện thi đại học</p>
+                                    <p class="text-sm text-gray-600">Nguyễn Văn Đức</p>
+                                    <p class="text-xs text-gray-500">Phòng 301</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b"></td>
+                        </tr>
+                        <!-- Evening -->
+                        <tr>
+                            <td class="py-3 px-4 border-b font-medium">18:30 - 20:30</td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-green-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-green-800">Tiếng Anh giao tiếp</p>
+                                    <p class="text-sm text-gray-600">Lê Thị Hương</p>
+                                    <p class="text-xs text-gray-500">Phòng 203</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-indigo-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-indigo-800">Luyện thi đại học</p>
+                                    <p class="text-sm text-gray-600">Nguyễn Văn Đức</p>
+                                    <p class="text-xs text-gray-500">Phòng 301</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b border-r">
+                                <div class="bg-purple-100 p-2 rounded schedule-cell cursor-pointer">
+                                    <p class="font-medium text-purple-800">Vật lý nâng cao</p>
+                                    <p class="text-sm text-gray-600">Trần Văn Hùng</p>
+                                    <p class="text-xs text-gray-500">Phòng 105</p>
+                                </div>
+                            </td>
+                            <td class="py-3 px-4 border-b border-r"></td>
+                            <td class="py-3 px-4 border-b"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Legend -->
+            <div class="mt-6 flex flex-wrap gap-4">
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-blue-100 rounded mr-2"></div>
+                    <span class="text-sm text-gray-700">Toán học</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-green-100 rounded mr-2"></div>
+                    <span class="text-sm text-gray-700">Tiếng Anh</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-purple-100 rounded mr-2"></div>
+                    <span class="text-sm text-gray-700">Vật lý</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-yellow-100 rounded mr-2"></div>
+                    <span class="text-sm text-gray-700">Hóa học</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-red-100 rounded mr-2"></div>
+                    <span class="text-sm text-gray-700">Ngữ văn</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-indigo-100 rounded mr-2"></div>
+                    <span class="text-sm text-gray-700">Luyện thi đại học</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Class Details Modal -->
+    <div id="class-details-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Chi tiết lớp học</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold text-primary-600 mb-2">Toán học nâng cao</h4>
+                <div class="mb-4">
+                    <p class="flex items-center text-gray-700 mb-2">
+                        <i class="fas fa-user-graduate mr-3 text-primary-500 w-5"></i>
+                        <span>Giáo viên: Nguyễn Thị Minh</span>
+                    </p>
+                    <p class="flex items-center text-gray-700 mb-2">
+                        <i class="fas fa-calendar-alt mr-3 text-primary-500 w-5"></i>
+                        <span>Thời gian: Thứ 2, 8:00 - 10:00</span>
+                    </p>
+                    <p class="flex items-center text-gray-700 mb-2">
+                        <i class="fas fa-map-marker-alt mr-3 text-primary-500 w-5"></i>
+                        <span>Địa điểm: Phòng 101</span>
+                    </p>
+                    <p class="flex items-center text-gray-700 mb-2">
+                        <i class="fas fa-users mr-3 text-primary-500 w-5"></i>
+                        <span>Sĩ số: 15/20 học viên</span>
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-3 rounded-lg mb-4">
+                    <h5 class="font-medium text-gray-800 mb-2">Nội dung buổi học:</h5>
+                    <p class="text-gray-700 text-sm">Ôn tập và giải bài tập về hàm số, đạo hàm và ứng dụng. Chuẩn bị cho bài kiểm tra giữa kỳ.</p>
+                </div>
+                <div class="flex justify-end">
+                    <button class="bg-primary-700 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded-lg">
+                        Đăng ký tham gia
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration CTA -->
+    <div class="bg-primary-700 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Bạn muốn đăng ký khóa học?</h2>
+            <p class="text-white text-lg mb-8 max-w-3xl mx-auto">Liên hệ với chúng tôi ngay hôm nay để được tư vấn và sắp xếp lịch học phù hợp với thời gian của bạn.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="courses.html" class="bg-white text-primary-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg">Xem khóa học</a>
+                <a href="contact.html" class="bg-transparent hover:bg-primary-500 border-2 border-white text-white font-bold py-3 px-8 rounded-lg">Liên hệ tư vấn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Về chúng tôi</h3>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-primary-700 rounded-full flex items-center justify-center text-white font-bold text-lg mr-2">EC</div>
+                        <span class="text-xl font-bold">EduCenter</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Trung tâm đào tạo hàng đầu với sứ mệnh mang đến kiến thức và kỹ năng cho thế hệ trẻ Việt Nam.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liên kết nhanh</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Trang chủ</a></li>
+                        <li><a href="courses.html" class="text-gray-400 hover:text-white">Khóa học</a></li>
+                        <li><a href="teachers.html" class="text-gray-400 hover:text-white">Giáo viên</a></li>
+                        <li><a href="schedule.html" class="text-gray-400 hover:text-white">Lịch học</a></li>
+                        <li><a href="news.html" class="text-gray-400 hover:text-white">Tin tức</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Courses -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Khóa học</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Toán học nâng cao</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tiếng Anh giao tiếp</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Vật lý cơ bản và nâng cao</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Hóa học</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Ngữ văn</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Luyện thi đại học</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liên hệ</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">123 Đường Nguyễn Huệ, Quận 1, Bắc Giang</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">(+84) 123 456 789</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">info@educenter.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">Thứ 2 - Thứ 6: 8:00 - 20:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 mb-6">
+            
+            <div class="text-center text-gray-400">
+                <p>&copy; 2023 EduCenter. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-primary-700 focus:outline-none hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Class Details Modal
+        const scheduleCells = document.querySelectorAll('.schedule-cell');
+        const classDetailsModal = document.getElementById('class-details-modal');
+        const closeModalButton = document.getElementById('close-modal');
+        
+        scheduleCells.forEach(cell => {
+            cell.addEventListener('click', () => {
+                classDetailsModal.classList.remove('hidden');
+            });
+        });
+        
+        closeModalButton.addEventListener('click', () => {
+            classDetailsModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === classDetailsModal) {
+                classDetailsModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
