@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Center</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-gray-100 py-2">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div>
+                <span class="text-gray-600 text-sm">Hotline: (+84) 123 456 789</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-2">EC</div>
+                        <span class="text-2xl font-bold text-primary-700">EduCenter</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary-600 font-medium">Trang chủ</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-600 font-medium">Khóa học</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-600 font-medium">Giáo viên</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-600 font-medium">Lịch học</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-600 font-medium">Tin tức</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-600 font-medium">Liên hệ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Trang chủ</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Khóa học</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Giáo viên</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Lịch học</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Tin tức</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary-600 font-medium">Liên hệ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="relative bg-primary-700 text-white">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Nâng cao kiến thức, mở rộng tương lai</h1>
+                <p class="text-lg md:text-xl mb-8">Trung tâm đào tạo hàng đầu với đội ngũ giáo viên giàu kinh nghiệm và phương pháp giảng dạy hiện đại</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-white text-primary-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-center">Khóa học</a>
+                    <a href="#" class="bg-transparent hover:bg-primary-600 border-2 border-white font-bold py-3 px-6 rounded-lg text-center">Tư vấn miễn phí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Courses -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Khóa học nổi bật</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Các khóa học được thiết kế phù hợp với nhiều đối tượng học viên, giúp bạn đạt được mục tiêu học tập một cách hiệu quả</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Course" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-primary-600 text-white px-3 py-1 m-2 rounded-full text-sm font-medium">Phổ biến</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Toán học nâng cao</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 ml-2">(120 đánh giá)</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Khóa học giúp học sinh nắm vững kiến thức toán học và phát triển tư duy logic.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary-600 font-bold text-lg">2.500.000 VNĐ</span>
+                            <a href="#" class="bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-lg">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Course" class="w-full h-48 object-cover">
+                        <div class="absolute top-0 right-0 bg-green-600 text-white px-3 py-1 m-2 rounded-full text-sm font-medium">Mới</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Tiếng Anh giao tiếp</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 ml-2">(85 đánh giá)</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Phát triển kỹ năng giao tiếp tiếng Anh với giáo viên bản ngữ và phương pháp hiện đại.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary-600 font-bold text-lg">3.200.000 VNĐ</span>
+                            <a href="#" class="bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-lg">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Course" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Vật lý cơ bản và nâng cao</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 ml-2">(95 đánh giá)</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Khóa học giúp học sinh hiểu sâu về các nguyên lý vật lý và ứng dụng thực tiễn.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary-600 font-bold text-lg">2.800.000 VNĐ</span>
+                            <a href="#" class="bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-lg">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-8 rounded-lg">Xem tất cả khóa học</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tại sao chọn chúng tôi?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Chúng tôi cam kết mang đến trải nghiệm học tập tốt nhất với đội ngũ giáo viên chất lượng và phương pháp giảng dạy hiệu quả</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user-graduate text-2xl text-primary-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Giáo viên chất lượng</h3>
+                    <p class="text-gray-600">Đội ngũ giáo viên giàu kinh nghiệm, tận tâm và nhiệt huyết với nghề</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book-open text-2xl text-primary-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Giáo trình hiện đại</h3>
+                    <p class="text-gray-600">Giáo trình được cập nhật thường xuyên, phù hợp với xu hướng giáo dục mới nhất</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-primary-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Lớp học nhỏ</h3>
+                    <p class="text-gray-600">Sĩ số lớp học giới hạn giúp giáo viên quan tâm đến từng học viên</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl text-primary-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Kết quả đảm bảo</h3>
+                    <p class="text-gray-600">Cam kết đầu ra và theo dõi tiến độ học tập của từng học viên</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teachers -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Đội ngũ giáo viên</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Giáo viên của chúng tôi không chỉ giỏi chuyên môn mà còn có phương pháp giảng dạy hiệu quả, tạo hứng thú cho học viên</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Teacher 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Teacher" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Nguyễn Thị Minh</h3>
+                        <p class="text-primary-600 font-medium mb-3">Giáo viên Toán học</p>
+                        <p class="text-gray-600 mb-4">Thạc sĩ Toán học, 10 năm kinh nghiệm giảng dạy tại các trường THPT chuyên.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Teacher" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Trần Văn Hùng</h3>
+                        <p class="text-primary-600 font-medium mb-3">Giáo viên Vật lý</p>
+                        <p class="text-gray-600 mb-4">Tiến sĩ Vật lý, giảng viên đại học và có nhiều năm kinh nghiệm luyện thi HSG.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Teacher" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Lê Thị Hương</h3>
+                        <p class="text-primary-600 font-medium mb-3">Giáo viên Tiếng Anh</p>
+                        <p class="text-gray-600 mb-4">Thạc sĩ ngôn ngữ Anh, chứng chỉ IELTS 8.5, 8 năm kinh nghiệm giảng dạy.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Teacher" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Phạm Minh Tuấn</h3>
+                        <p class="text-primary-600 font-medium mb-3">Giáo viên Hóa học</p>
+                        <p class="text-gray-600 mb-4">Thạc sĩ Hóa học, 12 năm kinh nghiệm giảng dạy và biên soạn nhiều tài liệu.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-16 bg-primary-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Học viên nói gì về chúng tôi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hàng ngàn học viên đã thành công sau khi học tập tại trung tâm của chúng tôi</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Nguyễn Thị Lan</h4>
+                            <p class="text-gray-600 text-sm">Học viên khóa Toán nâng cao</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Tôi đã cải thiện đáng kể điểm số môn Toán sau khi tham gia khóa học. Giáo viên rất tận tâm và phương pháp giảng dạy dễ hiểu."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Trần Minh Đức</h4>
+                            <p class="text-gray-600 text-sm">Học viên khóa Tiếng Anh giao tiếp</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Khóa học giúp tôi tự tin hơn khi giao tiếp bằng tiếng Anh. Giáo viên bản ngữ và phương pháp học thực tế rất hiệu quả."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Student" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Phạm Thanh Hà</h4>
+                            <p class="text-gray-600 text-sm">Học viên khóa Vật lý nâng cao</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Từ một học sinh trung bình, tôi đã đạt điểm cao trong kỳ thi đại học nhờ khóa học Vật lý. Cảm ơn các thầy cô đã luôn hỗ trợ tận tình."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-primary-50 rounded-lg shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Đăng ký tư vấn</h2>
+                        <p class="text-gray-600 mb-6">Để lại thông tin, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất</p>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Họ và tên</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Số điện thoại</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="course" class="block text-gray-700 font-medium mb-2">Khóa học quan tâm</label>
+                                <select id="course" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                    <option value="">Chọn khóa học</option>
+                                    <option value="math">Toán học nâng cao</option>
+                                    <option value="english">Tiếng Anh giao tiếp</option>
+                                    <option value="physics">Vật lý cơ bản và nâng cao</option>
+                                    <option value="chemistry">Hóa học</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-lg">Đăng ký ngay</button>
+                        </form>
+                    </div>
+                    <div class="md:w-1/2 bg-primary-600 p-8 md:p-12 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Thông tin liên hệ</h3>
+                        <div class="mb-6">
+                            <p class="mb-2"><i class="fas fa-map-marker-alt mr-3"></i> 123 Đường Nguyễn Huệ, Quận 1, TP.HCM</p>
+                            <p class="mb-2"><i class="fas fa-phone-alt mr-3"></i> (+84) 123 456 789</p>
+                            <p class="mb-2"><i class="fas fa-envelope mr-3"></i> info@educenter.com</p>
+                            <p><i class="fas fa-clock mr-3"></i> Thứ 2 - Thứ 6: 8:00 - 20:00</p>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Theo dõi chúng tôi</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-white text-primary-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-white text-primary-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-white text-primary-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="bg-white text-primary-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Về chúng tôi</h3>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-2">EC</div>
+                        <span class="text-xl font-bold">EduCenter</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Trung tâm đào tạo hàng đầu với sứ mệnh mang đến kiến thức và kỹ năng cho thế hệ trẻ Việt Nam.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liên kết nhanh</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Trang chủ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Khóa học</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Giáo viên</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Lịch học</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tin tức</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Courses -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Khóa học</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Toán học nâng cao</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tiếng Anh giao tiếp</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Vật lý cơ bản và nâng cao</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Hóa học</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Ngữ văn</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Luyện thi đại học</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liên hệ</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">123 Đường Nguyễn Huệ, Quận 1, TP.HCM</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">(+84) 123 456 789</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">info@educenter.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary-500"></i>
+                            <span class="text-gray-400">Thứ 2 - Thứ 6: 8:00 - 20:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 mb-6">
+            
+            <div class="text-center text-gray-400">
+                <p>&copy; 2023 EduCenter. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-primary-700 focus:outline-none hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
